@@ -38,19 +38,19 @@ export default function Navbar() {
         </div>
 
         {/* profile  */}
-        <div className="text-center text-stone-600 pl-2 text-xl ">
+        <div className="text-center -- pl-2 text-xl ">
           {/* <Profile /> */}
         </div>
         {/* wishlist */}
         <a href="#" className="text-xs ">
-          <div className="text-center text-stone-600 pl-2 text-xl ">
+          <div className="text-center -- pl-2 text-xl ">
             <AiOutlineHeart />
           </div>
           <span>WishList</span>
         </a>
         {/* Bag */}
         <Link href="/bag" className="text-xs">
-          <div className="text-center text-stone-600 text-xl ">
+          <div className="text-center  text-xl ">
             <BsBag />
           </div>
           <span>Bag</span>
