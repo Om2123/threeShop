@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import account, { createUser } from "@/appwrite/appwrite";
+import { createUser } from "@/appwrite/appwrite";
 import React, { useState } from "react";
 
 export default function Page() {
@@ -14,9 +14,13 @@ export default function Page() {
     try {
       createUser({ email, password }).then(
         (res) => {
-          router.push("/");
+          alert("User created successfully");
+          setTimeout(() =>
+            router.push("/"), 3000
+          )
+
         },
-        (err) => {}
+        (err) => { }
       );
     } catch (error: any) {
       // console.log(error);

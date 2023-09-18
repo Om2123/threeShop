@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import {  FaHeart, FaShoppingBag, FaUserAlt } from "react-icons/fa";
+import { AiFillCloseCircle } from "react-icons/ai";
+import {   FaHamburger, FaHeart, FaShoppingBag, FaUserAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -13,17 +14,14 @@ const Sidebar = () => {
   return (
     <div>
       <button
-        className="fixed top-0 right-0  bg-primary px-6 py-2 text-xs 
-        font-medium uppercase leading-tight text-black  
+        className="fixed top-0 right-0  bg-primary px-6 py-2  
+        font-medium uppercase leading-tight text-stone-600 text-3xl
          ease-in-out hover:bg-primary-700  focus:bg-primary-700  mt-3 
          focus:outline-none focus:ring-0 active:bg-primary-800 "
         onClick={toggleSidebar}
       >
-        <div className="w-6 h-6 flex flex-col justify-between ">
-          <span className=" bg-gray-900 h-1  w-full rounded"></span>
-          <span className=" bg-gray-900 h-1  w-4/5 rounded"></span>
-          <span className=" bg-gray-900 h-1  w-2/3 rounded"></span>
-        </div>
+        {/* ham */}
+        <FaHamburger/>
       </button>
 
       <nav
@@ -39,22 +37,10 @@ const Sidebar = () => {
       >
         <button
           onClick={toggleSidebar}
-          className="flex relative left-44 items-center justify-center p-2 bg-red-500 hover:bg-red-600 text-white rounded-full"
+          className="flex relative left-44 items-center justify-center p-2 text-3xl bg-red-500 hover:bg-red-600 text-white rounded-full"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+         {/* X */}
+         <AiFillCloseCircle/>
         </button>
         <ul
           className="relative m-0 list-none px-[0.2rem]"
