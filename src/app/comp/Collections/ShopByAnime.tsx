@@ -52,7 +52,7 @@ export default function ShopByAnime() {
             </div>
         <div className="text-center p-2 ml-3">
               <Image src={urls.jojo} alt="death note" width={170} className="m-2" height={100} />
-              <h3 className="font-semibold">Jojo's bizarre adventure</h3>
+              <h3 className="font-semibold">Jojo&apos;s bizarre adventure</h3>
             </div>
         <div className="text-center p-2 ml-3 max-sm:hidden">
               <Image src={urls.haikyu} alt="death note" width={170} className="m-2" height={100} />
