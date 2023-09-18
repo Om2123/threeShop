@@ -1,8 +1,5 @@
 "use client";
-import Image from "next/image";
-import banner from "@/../public/banner.jpeg";
-import banner2 from "@/../public/banner.jpg";
-import logo from "@/../public/logo.jpg";
+
 import React, { useEffect, useState } from "react";
 
 export default function Banner() {
@@ -14,67 +11,31 @@ export default function Banner() {
     setIsMobile(screenWidth < 768); // You can adjust the threshold as needed
   }, []);
   return (
-    <div className="w-full flex" style={{}}>
-      <div className="basis-1/2 bg-neutral-200 ">
-        {/* Your content */}
-        <Image src={logo} alt="logo" height={100} />
-
-        <form>
+    <div
+      className=" bg-cover w-full h-[500px] max-sm:h-80 bg-no-repeat "
+      style={{
+        backgroundImage: `url(https://images8.alphacoders.com/546/546902.jpg)`,
+      }}
+      id="banner"
+    >
+      <div className=" max-sm:hidden flex justify-center items-center  relative top-96 stroke-neutral-950">
+        <div className="relative mb-3" data-te-input-wrapper-init>
+          <input
+            type="search"
+            className="peer block min-h-[auto] bg-zinc-700 w-full rounded border-0 bg-transparent
+             px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear
+              focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none
+                [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            placeholder="Type query"
+          />
           <label
-            htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            htmlFor="exampleSearch2"
+            className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] font-black transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none text-white dark:peer-focus:text-primary"
           >
             Search
           </label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg
-                className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-            </div>
-            <input
-              type="search"
-              id="default-search"
-              className=" mx-1 max-sm:self-center md:w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50
-         focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-          dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search Mockups, Logos..."
-              required
-            />
-            <button
-              type="submit"
-              className="text-white absolute   bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Search
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
-      <div className="basis-1/2 max-sm:hidden">
-        {!isMobile ? (
-          <Image
-            src={banner2  }
-            alt="banner"
-            height={100}
-            width={1400}
-          />
-        ) : (
-          <Image src={banner} alt="banner" />
-        )}
-      </div>
-      {/* </div> */}
     </div>
   );
 }
