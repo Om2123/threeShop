@@ -46,7 +46,7 @@ export default function Banner() {
             <input
               type="search"
               id="default-search"
-              className=" mx-1 w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50
+              className=" mx-1 max-sm:self-center md:w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50
          focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search Mockups, Logos..."
@@ -61,7 +61,7 @@ export default function Banner() {
           </div>
         </form>
       </div>
-      <div className="basis-1/2">
+      <div className="basis-1/2 max-sm:hidden">
         {!isMobile ? (
           <Image
             src={

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./comp/Navbar";
 import Head from "next/head";
+import { MyProvider } from "@/redux/MyContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <link rel="icon" href="/logo.jpg" />
-        
+      <link rel="icon" href="/logo.jpg" />
+
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <MyProvider>{children}</MyProvider>
       </body>
     </html>
   );
