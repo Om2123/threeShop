@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
 import Image from "next/image";
 import Profile from "./Profile";
-import Sidebar  from "./Sidebar";
+import Sidebar from "./Sidebar";
 export default function Navbar() {
   return (
     <div
@@ -40,18 +40,20 @@ export default function Navbar() {
         </div>
 
         {/* profile  */}
-        <div className="text-center -- pl-2 text-xl ">
-          <Profile />
-        </div>
+        <Link href={"/signin"}>
+          <div className=" hover:animate-pulse text-center -- pl-2 text-xl ">
+            <Profile />
+          </div>
+        </Link>
         {/* wishlist */}
-        <a href="#" className="text-xs ">
+        <Link href={"/wishlist"} className="text-xs">
           <div className="text-center -- pl-2 text-xl ">
             <AiOutlineHeart />
           </div>
           <span>WishList</span>
-        </a>
+        </Link>
         {/* Bag */}
-        <Link href="/bag" className="text-xs">
+        <Link href="/cart" className="text-xs">
           <div className="text-center  text-xl ">
             <BsBag />
           </div>
@@ -61,7 +63,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className="hidden max-sm:block text-center">
         {/* <!-- Sidenav --> */}
-       <Sidebar/>
+        <Sidebar />
         {/* <!-- Toggler --> */}
       </div>
     </div>
