@@ -14,10 +14,9 @@ export default function Banner() {
   return (
     <div className="w-full">
       {!isMobile ? (
-        <img
-          src="https://e0.pxfuel.com/wallpapers/1022/228/desktop-wallpaper-ps4-banners-anime-girl.jpg"
-          className="w-full"
-        />
+        
+        <Image src={"https://e0.pxfuel.com/wallpapers/1022/228/desktop-wallpaper-ps4-banners-anime-girl.jpg"}
+            alt="banner" height={600} width={1400}/>
       ) : (
         <Image src={banner} alt="banner" />
       )}

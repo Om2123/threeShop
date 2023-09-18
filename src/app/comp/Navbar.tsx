@@ -1,25 +1,27 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import logo from "./../../../public/logo.jpg";
 import { AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
 import Image from "next/image";
-
+import Profile from "./Profile";
+import { Sidebar } from "flowbite-react";
 export default function Navbar() {
   return (
-    <nav
+    <div
       className="bg-white 
       top-0  left-0 right-0 fixed z-50 p-3 flex 
       justify-between items-center drop-shadow-md"
     >
       {/* Logo */}
 
-      <div className="flex ">
-        <Image src={logo} alt="logo" height={40} width={50} />
-        <div className="px-1 self-center">
-          <Link href="/">3Shop</Link>
+      <Link href="/">
+        <div className="flex ">
+          <Image src={logo} alt="logo" height={40} width={50} />
+          <div className="px-1 self-center">3Shop</div>
         </div>
-      </div>
+      </Link>
 
       {/* Search Bar and Cart */}
 
@@ -39,7 +41,7 @@ export default function Navbar() {
 
         {/* profile  */}
         <div className="text-center -- pl-2 text-xl ">
-          {/* <Profile /> */}
+          <Profile />
         </div>
         {/* wishlist */}
         <a href="#" className="text-xs ">
@@ -58,12 +60,10 @@ export default function Navbar() {
       </div>
       {/* Mobile Menu */}
       <div className="hidden max-sm:block">
-        <div className="space-y-2">
-          <div className="w-8 h-0.5 bg-gray-600"></div>
-          <div className="w-8 h-0.5 bg-gray-600"></div>
-          <div className="w-8 h-0.5 bg-gray-600"></div>
-        </div>
+        {/* <!-- Sidenav --> */}
+       <Sidebar/>
+        {/* <!-- Toggler --> */}
       </div>
-    </nav>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 export default function ShopByAnime() {
@@ -20,46 +21,46 @@ export default function ShopByAnime() {
       <div className="grid md:grid-rows-2 ">
         <div className="flex  mt-3 shrink">
             <div className="text-center p-1 ml-3">
-              <img src={urls.deathNote} className="" alt="death note" />
-              <h3>Death Note</h3>
+              <Image src={urls.deathNote} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Death Note</h3>
             </div>
             <div className="text-center p-2 ml-3">
-              <img src={urls.naruto} alt="death note" />
-              <h3>naruto</h3>
+              <Image src={urls.naruto} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Naruto</h3>
             </div>
             <div className="text-center p-2 ml-3">
-              <img src={urls.dragonBallZ} alt="death note" />
-              <h3>Dragon Ball Z</h3>
+              <Image src={urls.dragonBallZ} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Dragon Ball Z</h3>
             </div>
             <div className="text-center p-2 ml-3 max-sm:hidden">
-              <img src={urls.chainSawMan} alt="death note" />
-              <h3>Chain Saw Man</h3>
+              <Image src={urls.chainSawMan} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Chain Saw Man</h3>
             </div>
             <div className="text-center p-2 ml-3 max-sm:hidden">
-              <img src={urls.hunterXHunter} alt="death note" />
-              <h3>Hunter X Hunter</h3>
+              <Image src={urls.hunterXHunter} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Hunter X Hunter</h3>
             </div>
         </div>
         <div className="flex  mt-3">
         <div className="text-center p-2 ml-3">
-              <img src={urls.Mha} alt="death note" />
-              <h3>My hero academia</h3>
+              <Image src={urls.Mha} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">My hero academia</h3>
             </div>
         <div className="text-center p-2 ml-3">
-              <img src={urls.aot} alt="death note" />
-              <h3>Attack on tian</h3>
+              <Image src={urls.aot} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Attack on tian</h3>
             </div>
         <div className="text-center p-2 ml-3">
-              <img src={urls.jojo} alt="death note" />
-              <h3>Jojo's bizarre adventure</h3>
+              <Image src={urls.jojo} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Jojo's bizarre adventure</h3>
             </div>
         <div className="text-center p-2 ml-3 max-sm:hidden">
-              <img src={urls.haikyu} alt="death note" />
-              <h3>Haikyuu</h3>
+              <Image src={urls.haikyu} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Haikyuu</h3>
             </div>
         <div className="text-center p-2 ml-3 max-sm:hidden">
-              <img src={urls.blackCover} alt="death note" />
-              <h3>Black Cover</h3>
+              <Image src={urls.blackCover} alt="death note" width={170} className="m-2" height={100} />
+              <h3 className="font-semibold">Black Cover</h3>
             </div>
         </div>
       </div>
