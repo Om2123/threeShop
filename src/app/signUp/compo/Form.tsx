@@ -8,14 +8,14 @@ import { useRouter } from "next/navigation";
 
 export default function Form() {
     const [email, setEmail] = useState("");
-    const [check, setAT] = useState(false);
+    const [name,setName] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
 // 
   const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
-      await account.create(ID.unique(), email, password).then((res:any) => {
+      await account.create(ID.unique(), email, password ,name).then((res:any) => {
         router.push("/");
       })
     } catch (error:any) {
@@ -49,6 +49,25 @@ export default function Form() {
           id="email"
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="name@company.com"
+          required
+        />
+      </div>
+      {/* username */}
+      <div>
+        <label
+          htmlFor="email"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Your Name
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={name}
+          onChange={(e)=>setName(e.target.value)}
+          id="email"
+          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Light yagami"
           required
         />
       </div>
@@ -89,33 +108,7 @@ export default function Form() {
         />
       </div>
       {/* accept the terms and conditions */}
-      <div className="flex items-start">
-        <div className="flex items-center h-5">
-          <input
-            id="terms"
-            aria-describedby="terms"
-            type="checkbox"
-            // value={check}
-            onChange={(e)=>setAT(e.target.checked)}
-            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-            required
-          />
-        </div>
-        <div className="ml-3 text-sm">
-          <label
-            htmlFor="terms"
-            className="font-light text-gray-500 dark:text-gray-300"
-          >
-            I accept the{" "}
-            <a
-              className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-              href="#"
-            >
-              Terms and Conditions
-            </a>
-          </label>
-        </div>
-      </div>
+     
       {/* submit button  */}
       <button
         type="submit"
@@ -127,7 +120,7 @@ export default function Form() {
       <p className="text-sm font-light flex text-gray-500 dark:text-gray-400">
         Already have an account?
         <Link href={"/signin"}>
-          <div className="font-medium pl- text-primary-600 hover:underline dark:text-primary-500">
+          <div className="font-medium pl- text-gray-800 text-primary-600 hover:underline dark:text-primary-500">
             Login here
           </div>
         </Link>
