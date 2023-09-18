@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import banner from "@/../public/banner.jpeg";
+import banner2 from "@/../public/banner.jpg";
 import logo from "@/../public/logo.jpg";
 import React, { useEffect, useState } from "react";
 
@@ -64,9 +65,7 @@ export default function Banner() {
       <div className="basis-1/2 max-sm:hidden">
         {!isMobile ? (
           <Image
-            src={
-              "https://e1.pxfuel.com/desktop-wallpaper/62/395/desktop-wallpaper-2048x1152-anime-cool-anime-banners.jpg"
-            }
+            src={banner2  }
             alt="banner"
             height={100}
             width={1400}
