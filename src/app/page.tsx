@@ -3,6 +3,7 @@ import Banner from "./comp/Banner";
 import Categories from "./comp/Collections/Categories";
 import ShopByAnime from "./comp/Collections/ShopByAnime";
 import Footer from "./comp/Footer";
+import Testimonals from "./comp/Testimonals";
 
 export default function Home() {
   return (
@@ -11,8 +12,9 @@ export default function Home() {
       <div className="pt-10 mt-10">
         <Banner />
       </div>
-      <ShopByAnime />
       {/* <Categories /> */}
+      <ShopByAnime />
+      <Testimonals/>
       <Footer />
     </div>
   );

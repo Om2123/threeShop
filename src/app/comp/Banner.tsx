@@ -3,16 +3,10 @@
 import React, { useEffect, useState } from "react";
 
 export default function Banner() {
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    // Check the screen width to determine if it's a mobile device
-    const screenWidth = window.innerWidth;
-    setIsMobile(screenWidth < 768); // You can adjust the threshold as needed
-  }, []);
   return (
     <div
-      className=" bg-cover w-full h-[500px] max-sm:h-80 bg-no-repeat "
+      className=" bg-cover w-full h-[550px] max-sm:h-80 bg-no-repeat "
       style={{
         backgroundImage: `url(https://images8.alphacoders.com/546/546902.jpg)`,
       }}
@@ -22,7 +16,7 @@ export default function Banner() {
         <div className="relative mb-3" data-te-input-wrapper-init>
           <input
             type="search"
-            className="peer block min-h-[auto] bg-zinc-700 w-full rounded border-0 bg-transparent
+            className="peer block min-h-[auto] bg-zinc-700 text-white w-full rounded border-0 bg-transparent
              px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear
               focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none
                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"

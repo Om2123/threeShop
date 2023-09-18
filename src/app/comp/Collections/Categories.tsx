@@ -7,60 +7,95 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 export default function Categories() {
   
-  const [slidesToShow,setSlidesToShow] = useState(4);
-  const [slidesToScroll,setSlidesToScroll] = useState(1);
-
-  useEffect(() => {
-    const updateWindowDimensions = () => {
-      setSlidesToShow(window.innerWidth < 768 ? 4 : 5)
-       setSlidesToScroll(window.innerWidth < 768 ? 1 : 1)
-      
-      // Use the slidesToShow and slidesToScroll values as needed
-      // (e.g., update state or any other logic)
-    };
-
-    // Call the function initially
-    updateWindowDimensions();
-
-    // Attach the function to the "resize" event to update on window size changes
-    window.addEventListener('resize', updateWindowDimensions);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', updateWindowDimensions);
-    };
-  }, []);
-  const settings = {
-    dots: true,
-  
-    infinite: true,
-    speed: 500,
-    slidesToShow: slidesToShow,
-    slidesToScroll: slidesToScroll
-  };
+  // 
   return (
-    <div>
-      
-      <div className=" indent-1 max-sm:w-11/12 ">
-      
-      <h1 className="uppercase text-zinc-700
-       mt-12 ml-3	sm:mt-16 sm:ml-7 
-       sm:text-3xl text-xl mb-10 tracking-widest  font-bold ">
-      RAKSHABANNDHAN GIFTS THIS WAY
-      </h1>
-
-      <Slider   className="max-sm:ml-3"
-      {...settings} autoplay={true}
+    <div
+    id="carouselExampleControls"
+    className="relative  mt-20"
+    data-te-carousel-init
+    data-te-ride="carousel">
+    {/* <!--Carousel items--> */}
+    <div
+      className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+      {/* <!--First item--> */}
+      <div
+        className="relative float-left  w-full  transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+        data-te-carousel-item
+        data-te-carousel-active>
+        <img
+          src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+          className="block w-full"
+          alt="Wild Landscape" />
+      </div>
+      {/* <!--Second item--> */}
+      <div
+        className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+        data-te-carousel-item>
+        <img
+          src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+          className="block w-full"
+          alt="Camera" />
+      </div>
+      {/* <!--Third item--> */}
+      <div
+        className="relative float-left -mr-[100%] hidden  mx-10 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+        data-te-carousel-item>
+        <img
+          src=""
+          className="block w-full"
+          alt="Exotic Fruits" />
+      </div>
+    </div>
+  
+    {/* <!--Carousel controls - prev item--> */}
+    <button
+      className="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+      type="button"
+      data-te-target="#carouselExampleControls"
+      data-te-slide="prev">
+      <span className="inline-block h-8 w-8">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="h-6 w-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </span>
+      <span
+        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+        >Previous</span
       >
-        {/* <Image  objectFit="contain" src={r1} alt="d"/>
-        <Image src={r2} alt="d" objectFit="contain" />
-        <Image src={r3} alt="d" objectFit="contain" />
-        <Image src={r4} alt="d" objectFit="contain" />
-        {/* <Image src={r5} alt="d"/> 
-        <Image src={r6} alt="d" objectFit="contain" /> */}
-          
-        </Slider>
-    </div>
-    </div>
+    </button>
+    {/* <!--Carousel controls - next item--> */}
+    <button
+      className="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+      type="button"
+      data-te-target="#carouselExampleControls"
+      data-te-slide="next">
+      <span className="inline-block h-8 w-8">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="h-6 w-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </span>
+      <span
+        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+        >Next</span>
+    </button>
+  </div>
   )
 }
