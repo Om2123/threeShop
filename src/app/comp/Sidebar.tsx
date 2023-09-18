@@ -1,28 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
-    console.log(isOpen);
     setIsOpen(!isOpen);
   };
 
-  // Close the sidebar when clicking anywhere outside of it
-  useEffect(() => {
-    const handleOutsideClick = (e: any) => {
-      if (isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, [isOpen]);
+ 
 
   return (
     <div>
