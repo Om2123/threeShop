@@ -13,7 +13,6 @@ export default function Page() {
   const handleLogin = async () => {
     try {
           await account.createEmailSession(email, password).then((res)=>{
-              setUser(account.get());
           })
     } catch (error: any) {
         console.log(error);
