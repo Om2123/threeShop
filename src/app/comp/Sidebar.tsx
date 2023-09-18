@@ -1,21 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
 
-const SidebarToggle = () => {
+const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
+    console.log(isOpen);
     setIsOpen(!isOpen);
   };
 
   // Close the sidebar when clicking anywhere outside of it
   useEffect(() => {
     const handleOutsideClick = (e: any) => {
-      if (
-        isOpen &&
-        !e.target.closest("#sidenav-7") &&
-        !e.target.closest("button")
-      ) {
+      if (isOpen) {
         setIsOpen(false);
       }
     };
@@ -30,21 +27,49 @@ const SidebarToggle = () => {
   return (
     <div>
       <button
-        className="fixed top-0 right-0 mt-10 bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+        className="fixed top-0 right-0  bg-primary px-6 py-2 text-xs 
+        font-medium uppercase leading-tight text-black  
+         ease-in-out hover:bg-primary-700  focus:bg-primary-700  mt-3 
+         focus:outline-none focus:ring-0 active:bg-primary-800 "
         onClick={toggleSidebar}
       >
-        Toggle Sidebar
+        <div className="w-6 h-6 flex flex-col justify-between ">
+          <span className=" bg-gray-900 h-1  w-full rounded"></span>
+          <span className=" bg-gray-900 h-1  w-4/5 rounded"></span>
+          <span className=" bg-gray-900 h-1  w-2/3 rounded"></span>
+        </div>
       </button>
 
       <nav
         id="sidenav-7"
-        className={`fixed right-0 top-0 z-[1035] h-screen w-60 translate-x-${
-          isOpen ? "0" : "full"
-        } overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:-translate-x-0 dark:bg-zinc-800`}
+        className={`fixed right-0 top-0  h-screen w-60 ${
+          isOpen ? " hidden " : " "
+        }
+        overflow-hidden  bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] 
+          data-[te-sidenav-hidden='false']:-translate-x-0 dark:bg-zinc-800`}
         data-te-sidenav-init
         data-te-sidenav-hidden="false"
         data-te-sidenav-right="true"
       >
+        <button
+          onClick={toggleSidebar}
+          className="flex relative left-44 items-center justify-center p-2 bg-red-500 hover:bg-red-600 text-white rounded-full"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
         <ul
           className="relative m-0 list-none px-[0.2rem]"
           data-te-sidenav-menu-ref
@@ -70,7 +95,7 @@ const SidebarToggle = () => {
                   />
                 </svg>
               </span>
-              <span>Link 1</span>
+              <span>My Profile</span>
             </a>
           </li>
           <li className="relative">
@@ -92,7 +117,7 @@ const SidebarToggle = () => {
                   />
                 </svg>
               </span>
-              <span>Category 1</span>
+              <span>Wish List</span>
               <span
                 className="absolute right-0 ml-auto mr-[0.8rem] transition-transform duration-300 ease-linear motion-reduce:transition-none [&>svg]:text-gray-600 dark:[&>svg]:text-gray-300"
                 data-te-sidenav-rotate-icon-ref
@@ -120,7 +145,7 @@ const SidebarToggle = () => {
                   className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
                   data-te-sidenav-link-ref
                 >
-                  Link 2
+                  WishList
                 </a>
               </li>
               <li className="relative">
@@ -128,7 +153,7 @@ const SidebarToggle = () => {
                   className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
                   data-te-sidenav-link-ref
                 >
-                  Link 3
+                  Bag
                 </a>
               </li>
             </ul>
@@ -152,7 +177,7 @@ const SidebarToggle = () => {
                   />
                 </svg>
               </span>
-              <span>Category 2</span>
+              <span>Bag</span>
               <span
                 className="absolute right-0 ml-auto mr-[0.8rem] transition-transform duration-300 ease-linear motion-reduce:transition-none [&>svg]:text-gray-600 dark:[&>svg]:text-gray-300"
                 data-te-sidenav-rotate-icon-ref
@@ -200,4 +225,4 @@ const SidebarToggle = () => {
   );
 };
 
-export default SidebarToggle;
+export default Sidebar;

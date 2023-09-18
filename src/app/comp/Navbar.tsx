@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
 import Image from "next/image";
 import Profile from "./Profile";
-import { Sidebar } from "flowbite-react";
+import Sidebar  from "./Sidebar";
 export default function Navbar() {
   return (
     <div
@@ -59,7 +59,7 @@ export default function Navbar() {
         </Link>
       </div>
       {/* Mobile Menu */}
-      <div className="hidden max-sm:block">
+      <div className="hidden max-sm:block text-center">
         {/* <!-- Sidenav --> */}
        <Sidebar/>
         {/* <!-- Toggler --> */}
