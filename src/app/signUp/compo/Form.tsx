@@ -117,14 +117,14 @@ export default function Form() {
       >
         Create an account
       </button>
-      <p className="text-sm font-light flex text-gray-500 dark:text-gray-400">
+      <div className="text-sm font-light flex text-gray-500 dark:text-gray-400">
         Already have an account?
+          <div className="font-medium pl- text-gray-200 text-primary-600 hover:underline dark:text-primary-500">
         <Link href={"/signin"}>
-          <div className="font-medium pl- text-gray-800 text-primary-600 hover:underline dark:text-primary-500">
             Login here
-          </div>
         </Link>
-      </p>
+          </div>
+      </div>
     </div>
   );
 }
