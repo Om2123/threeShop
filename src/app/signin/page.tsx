@@ -4,10 +4,8 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import account from "@/appwrite/appwrite";
 import React, { useState } from "react";
-import { useMyContext } from "@/redux/MyContext";
 
-export default function page() {
-  const {user , setUser} =useMyContext();
+export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -130,7 +128,7 @@ export default function page() {
               </div>
 
               <div className="mb-6 items-center flex">
-                Don't have an account?{" "}
+                Don &apos;t have an account?{" "}
                 <Link href={"/signUp"}>
                   {" "}
                   <p className="underline">Sign up</p>

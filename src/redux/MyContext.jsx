@@ -22,7 +22,7 @@ export function MyProvider({children}) {
 }
 
 // Create a custom hook for accessing the context
-export function useMyContext() {
+export function UseMyContext() {
   const context = useContext(MyContext);
   if (!context) {
     throw new Error('useMyContext must be used within a MyProvider');
