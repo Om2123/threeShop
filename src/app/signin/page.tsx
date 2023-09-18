@@ -1,19 +1,40 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import account from "@/appwrite/appwrite";
+import React, { useState } from "react";
+
 export default function page() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const handleLogin = async () => {
+    try {
+          await account.createEmailSession(email, password);
+    } catch (error: any) {
+        console.log(error);
+        alert(error.message);
+        return;
+    }
+    router.push("/");
+  };
+
   return (
     <section className="h-screen  ">
       <div className="container h-full px-6 py-24">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           {/* <!-- Left column container with background--> */}
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12 ">
-            
-            <Image src={"https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"}
-            className="w-full"
-            width={500}
-            height={500}
-            alt="Phone image"
+            <Image
+              src={
+                "https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              }
+              className="w-full"
+              width={500}
+              height={500}
+              alt="Phone image"
             />
           </div>
 
@@ -43,6 +64,8 @@ export default function page() {
                   <input
                     type="text"
                     id="website-admin"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500
     focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700
      dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
@@ -63,6 +86,8 @@ export default function page() {
                   </label>
                   <input
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     id="password"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="•••••••••"
@@ -98,10 +123,18 @@ export default function page() {
                 </a>
               </div>
 
+              <div className="mb-6 items-center flex">
+                Don't have an account?{" "}
+                <Link href={"/signUp"}>
+                  {" "}
+                  <p className="underline">Sign up</p>
+                </Link>
+              </div>
               {/* <!-- Submit button --> */}
 
               <button
                 type="button"
+                onClick={handleLogin}
                 className="text-gray-900 w-full  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
                 Sign in

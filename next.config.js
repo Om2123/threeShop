@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images:{
-        domains: ['e0.pxfuel.com', 'otakukulture.in'], // Add both hostnames causing the error here
+        domains: ['e0.pxfuel.com', 'otakukulture.in' , "*", "e1.pxfuel.com"], // Add both hostnames causing the error here
     }
 }
 
