@@ -4,12 +4,10 @@ import s3_log from "@/../public/login-alt-2.jpeg";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { logIn } from "@/appwrite/appwrite";
-import React, { useContext, useState } from "react";
+import React ,{useState } from "react";
 import { AiOutlineGoogle, AiOutlineTwitter } from "react-icons/ai";
-import MyContext from "@/myContext/MyContext";
 
 export default function Page() {
-    const f = useContext(MyContext);
     
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +18,6 @@ export default function Page() {
       logIn({ email, password }).then(
         (res) => {
           alert("User logged successfully");
-          f.setUser(res);
-          // console.log(user);
           
           setTimeout(() => router.push("/"), 3000)
         },
