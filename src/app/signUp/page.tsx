@@ -6,10 +6,8 @@ import {createUser} from "@/appwrite/appwrite"
 import { useRouter } from "next/navigation";
 import React, { useContext, useState } from 'react'
 import { AiOutlineGoogle, AiOutlineTwitter } from 'react-icons/ai';
-import MyContext from "@/myContext/MyContext";
 
 export default function Page() {
-  const {user, setUser} = useContext(MyContext);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +24,6 @@ export default function Page() {
     try {
      
       createUser({email,password,name}).then((res)=>{
-        setUser(res);
         alert("User Created Succesfull !")
         router.push("/");
       })
