@@ -6,7 +6,7 @@ import Filters from './compo/Filters';
 import Item from './compo/Item';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import Footer from '../comp/Footer';
-export default function page() {
+export default function Page() {
   const [productList, setProduct] = useState<any>([]);
   useEffect(() => {
 

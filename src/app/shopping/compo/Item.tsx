@@ -5,12 +5,12 @@ export default function Item() {
     <div className="flex hover:shadow-2xl  w-item-height shadow-lg mb-10">
       <div className=" basis-1/3 bg-stone-300 rounded-md m-1">
         {/* product image */}
-        <img
+        {/* <img
           src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvDkKA77NqgFgcwar8U-9zxQ9Ctom_ZlMZ3w&usqp=CAU'
           alt='image'
           width={300}
           height={200}
-        />
+        /> */}
 
       </div>
       <div className='w-full m-1'>
