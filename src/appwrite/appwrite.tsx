@@ -9,8 +9,17 @@ client
 const account = new Account(client);
 
 // Create user
-const createUser = async ({ email, password }: any) => {
-  await account.createEmailSession(email, password);
+const createUser = async ({ email, password,name }: any) => {
+  try {
+    await account.create(ID.unique(), email, password, name).then((res: any) => {
+      console.log("user created successfully");
+      
+    })
+    
+  } catch (error:any) {
+    alert(error.message)
+   
+  }
 };
 const createDocument = async({productName , price,rating,anime }:any)=>{
   database.createDocument(
@@ -34,8 +43,22 @@ const loadProduct = async () => {
   return products.documents;
 }
 const logIn = async ({ email, password }: any) => {
- 
+  await account.createEmailSession(email, password);
+};
+const logOut= async()=>{
+  try {
+    await account.deleteSession("current").catch(er=>console.log(er)
+    )
+    
+  } catch (error:any) {
+    console.log(error.message);
+    
+  }
 }
-export { createUser,logIn, loadProduct ,createDocument };
+const getUser=async()=>{
+  const a = await account.get();
+  
+  return a
+}
+export { createUser,logIn, getUser,logOut,loadProduct ,createDocument };
 export const database = new Databases(client);
-export default account;

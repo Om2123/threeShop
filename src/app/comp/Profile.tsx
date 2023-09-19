@@ -1,13 +1,25 @@
+import { logOut } from '@/appwrite/appwrite'
+import Link from 'next/link'
 import React from 'react'
+import { BiUser } from 'react-icons/bi'
 
 export default function Profile() {
   return (
-    <div>
-    <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-    <svg className="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-</div>
-    {/* <!-- Dropdown menu --> */}
-    
+    <div className=''>
+      <div className="pl-1 text-center group text-xl">
+
+        <BiUser />
+        <div className="hidden hover:block group-hover:block absolute right-0 mt-2 w-48 mr-3 bg-white border rounded-lg shadow-lg">
+          <ul className="py-2">
+            <Link href={"/signin"}>
+              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</li>
+            </Link>
+            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={logOut}>Log Out</li>
+          </ul>
+        </div>
+      </div>
+
+      <span>Profile</span>
 
     </div>
   )

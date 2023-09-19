@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { BiSolidQuoteAltLeft } from "react-icons/bi";
 
 export default function Testimonals() {
   return (
@@ -22,32 +23,15 @@ export default function Testimonals() {
             <div className="h-28 overflow-hidden rounded-t-lg bg-gray-400"></div>
             <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
               <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                <svg
-                  className="absolute w-12 h-12 text-gray-400 -left-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
+               
+
               </div>{" "}
             </div>
             <div className="p-6">
               <h4 className="mb-4 text-2xl font-semibold">sanday</h4>
               <hr />
               <p className="mt-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="inline-block h-7 w-7 pr-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
-                </svg>
+                <BiSolidQuoteAltLeft/>
                 Lorem ipsum dolor sit amet eos adipisci, consectetur adipisicing
                 elit.
               </p>
@@ -61,32 +45,16 @@ export default function Testimonals() {
             <div className="h-28 overflow-hidden rounded-t-lg bg-gray-400"></div>
             <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
               <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                <svg
-                  className="absolute w-12 h-12 text-gray-400 -left-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
+               
+               {/* user pic */}
               </div>{" "}
             </div>
             <div className="p-6">
               <h4 className="mb-4 text-2xl font-semibold">monday</h4>
               <hr />
               <p className="mt-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="inline-block h-7 w-7 pr-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
-                </svg>
+                
+                  <BiSolidQuoteAltLeft/>
                 Neque cupiditate assumenda in maiores repudi mollitia
                 architecto.
               </p>
@@ -100,32 +68,15 @@ export default function Testimonals() {
             <div className="h-28 overflow-hidden rounded-t-lg bg-gray-400"></div>
             <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
               <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                <svg
-                  className="absolute w-12 h-12 text-gray-400 -left-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
+               
+               {/* user pic */}
               </div>{" "}
             </div>
             <div className="p-6">
               <h4 className="mb-4 text-2xl font-semibold">tuesday</h4>
               <hr />
               <p className="mt-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="inline-block h-7 w-7 pr-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
-                </svg>
+               <BiSolidQuoteAltLeft/>
                 Delectus impedit saepe officiis ab aliquam repellat rem unde
                 ducimus.
               </p>

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { createDocument } from "@/appwrite/appwrite";
-export default function page() {
-  const [product, setProduct] = useState({
+export default function Page() {
+  const [product, setProduct] = React.useState({
     name: "",
     price: "",
     anime: "",

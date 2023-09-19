@@ -40,10 +40,8 @@ export default function Navbar() {
         </div>
 
         {/* profile  */}
-        <Link href={"/signin"}>
-          <div className=" hover:animate-pulse text-center -- pl-2 text-xl ">
+        <Link href={"/signin"} className="text-xs">
             <Profile />
-          </div>
         </Link>
         {/* wishlist */}
         <Link href={"/wishlist"} className="text-xs">
