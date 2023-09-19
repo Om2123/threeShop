@@ -5,7 +5,7 @@ import MyContext from '@/myContext/MyContext';
 import React, { useContext, useEffect } from 'react'
 
 export default function page() {
-  const { user, setUser } = useContext(MyContext);
+  const {  setUser } = useContext(MyContext);
   useEffect(() => {
     try {
       
@@ -30,9 +30,7 @@ export default function page() {
     <div className='pt-72 '>
       <h1 className='text-3xl text-center text-black bg-blue-500'>
 
-        {
-          user?.name
-        }
+       
       </h1>
     </div>
   )

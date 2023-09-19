@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./comp/Navbar";
+import Navbar from "./comp/Navbar/Navbar";
 import Head from "next/head";
 import { MyProvider } from "@/myContext/MyContext";
 

@@ -1,5 +1,4 @@
 import { Account, Client, Databases, ID } from "appwrite";
-// Init SDKconst client = new Client();
 const client = new Client();
 
 client
@@ -13,8 +12,8 @@ const createUser = async ({ email, password,name }: any) => {
   try {
     await account.create(ID.unique(), email, password, name).then((res: any) => {
       console.log("user created successfully");
-      
     })
+    await logIn({ email, password });
     
   } catch (error:any) {
     alert(error.message)
@@ -27,7 +26,7 @@ const createDocument = async({productName , price,rating,anime }:any)=>{
     "6508174fd50e00f14748",
     ID.unique(),
     { 
-      priceName:productName,
+      productName:productName,
       price:price,
       rating:rating,
       animeName:anime,
@@ -38,12 +37,24 @@ const createDocument = async({productName , price,rating,anime }:any)=>{
   }, (err)=>{alert(err.message)}
   )
 }
-const loadProduct = async () => {
-  const products = await database.listDocuments("650816cd8feee59dcadf", "6508174fd50e00f14748");
-  return products.documents;
+const loadProduct =  () => {
+  
+  database.listDocuments("650816cd8feee59dcadf", "6508174fd50e00f14748").then((res)=>{
+    return res;
+  
+  }).catch((er)=>console.log(er.message)
+  )
+  
 }
+
 const logIn = async ({ email, password }: any) => {
-  await account.createEmailSession(email, password);
+  try {
+    
+    await account.createEmailSession(email, password);
+  } catch (error:any) {
+    console.log(error.message);
+    
+  }
 };
 const logOut= async()=>{
   try {

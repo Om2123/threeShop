@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import logo from "./../../../public/logo.jpg";
+import logo from "@/../public/logo.jpg";
 import { AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
 import Image from "next/image";
