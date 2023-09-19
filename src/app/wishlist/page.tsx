@@ -5,23 +5,23 @@ import MyContext from '@/myContext/MyContext';
 import React, { useContext, useEffect } from 'react'
 
 export default function Page() {
-  const { setUser } = useContext(MyContext);
-  useEffect(() => {
-    try {
+  // const { setUser } = useContext(MyContext);
+  // useEffect(() => {
+  //   try {
 
-      const d = getUser()
-      d.then(res => {
-        setUser(res);
-      }).catch((err) => {
-        console.log(err);
+  //     const d = getUser()
+  //     d.then(res => {
+  //       setUser(res);
+  //     }).catch((err) => {
+  //       console.log(err);
 
-      })
-    } catch (error) {
-      console.log(error);
+  //     })
+  //   } catch (error) {
+  //     console.log(error);
 
-    }
+  //   }
 
-  })
+  // })
 
 
 
