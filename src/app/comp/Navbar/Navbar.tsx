@@ -7,6 +7,7 @@ import { BsBag } from "react-icons/bs";
 import Image from "next/image";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
+import { BiSolidShoppingBagAlt } from "react-icons/bi";
 export default function Navbar() {
   return (
     <div
@@ -40,9 +41,18 @@ export default function Navbar() {
         </div>
 
         {/* profile  */}
-        <Link href={"/signin"} className="text-xs">
+        <Link href={"/profile"} className="text-xs">
             <Profile />
         </Link>
+      
+        {/* wishlist */}
+        <Link href={"/shopping"} className="text-xs">
+          <div className="text-center -- pl-5 text-xl ">
+            <BiSolidShoppingBagAlt/>
+          </div>
+          <span>All Products</span>
+        </Link>
+      
         {/* wishlist */}
         <Link href={"/wishlist"} className="text-xs">
           <div className="text-center -- pl-2 text-xl ">

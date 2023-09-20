@@ -2,56 +2,64 @@
 import s3alt from "@/../public/3shop-2.jpeg";
 import Image from 'next/image';
 import Link from 'next/link';
-import {createUser} from "@/appwrite/appwrite"
+import { account,  logIn } from "@/appwrite/appwrite"
 import { useRouter } from "next/navigation";
 import React, { useContext, useState } from 'react'
-import { AiOutlineGoogle, AiOutlineTwitter } from 'react-icons/ai';
+import { AiFillCloseCircle,  AiOutlineGoogle, AiOutlineTwitter } from 'react-icons/ai';
+import MyContext from "@/myContext/MyContext";
+import { ID } from "appwrite";
 
 export default function Page() {
+  const [isErrros, setIsError] = useState({
+    isError: false,
+    message: ""
+  })
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  
+  // const {setIslogged}= useContext(MyContext);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if(document.getElementById("password")?.innerText!= document.getElementById("password2")?.innerText)
-    {
+    if (document.getElementById("password")?.innerText != document.getElementById("password2")?.innerText) {
       alert("password not match !!")
       return;
     }
 
-    try {
-     
-      createUser({email,password,name}).then((res)=>{
-        alert("User Created Succesfull !")
-        router.push("/");
-      })
-      
-    } catch (error: any) {
-      console.log(error);
-      if (
-        "Invalid password: Password must be at least 8 characters" ===
-        error.message
-      ) {
-        alert("Invalid password: Password must be at least 8 characters");
+      try {
+        await account.create(ID.unique(), email, password, name).then((res: any) => {
+          logIn({email,password});
+          alert("user created successfully")
+          setTimeout(() => {
+            router.push("/")
+          }, 5000);
+          
+        }).catch(err => {
+          setIsError({
+            isError: true,
+            message: err.message
+          })
+          console.log(err.message);
+          return
+        });
+
+      } catch (error: any) {
+        
+        
       }
-      else {
-        alert(error.message);
-      }
-    }
+
   };
   return (
     <section className="h-screen  ">
       <div className="container h-full py-24">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between ">
           {/* <!-- Left column container with background--> */}
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12   ">
 
             <Image
-            priority
+              priority
               src={s3alt}
-              className="w-full md:h-[500px] md:ml-10 rounded-xl"
+              className="w-full md:h-[500px] md:ml-10  rounded-xl"
 
               alt="log in image"
             ></Image>
@@ -61,6 +69,23 @@ export default function Page() {
 
           {/* <!-- Right column container with form --> */}
           <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
+             {/* error message to user */}
+             {
+              isErrros.isError ?
+                <div
+                  className="mb-3 inline-flex w-full items-center rounded-lg bg-red-200 px-6 py-5 text-base text-red-700"
+                  role="alert">
+                  <span className="mr-2 text-2xl" onClick={()=> {setIsError({isError: false, message: ""})}}>
+                    <AiFillCloseCircle/>
+                  </span>
+                  {isErrros.message}
+                </div>
+                : 
+                <>
+                
+                </>
+
+            }
             <form>
               {/* <!-- Email input --> */}
               <div className="relative mb-6" data-te-input-wrapper-init>
@@ -151,9 +176,7 @@ export default function Page() {
                   </label>
                   <input
                     type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    name="password"
+                    name="password2"
                     id="password2"
                     placeholder="••••••••"
                     className="bg-gray-50 border max-sm:p-5   border-gray-300 text-gray-900 text-sm rounded-lg
@@ -166,7 +189,7 @@ export default function Page() {
 
               <div className="mb-6 items-center flex max-sm:mx-2">
                 Already have an account  ?
-                <Link href={"/signin"} className="underline animate-pulse">
+                <Link href={"/login"} className="underline animate-pulse">
                   Login here
                 </Link>
               </div>

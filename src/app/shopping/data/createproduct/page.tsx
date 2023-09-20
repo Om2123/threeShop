@@ -20,7 +20,9 @@ function Page() {
   });
 
   const handleSubmit = (e: any) => {
-    createDocument({ productName: product.name, price: product.price, animeName: product.anime, rating: product.rating });
+    e.preventDefault();
+    
+    createDocument({ productName: product.name, price: product.price, rating: product.rating , anime: product.anime });
   };
     useEffect(()=>{
 

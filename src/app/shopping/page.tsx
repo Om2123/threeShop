@@ -4,9 +4,14 @@ import { database, loadProduct } from '@/appwrite/appwrite';
 import Image from 'next/image';
 import Filters from './compo/Filters';
 import Item from './compo/Item';
+
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import Footer from '../comp/Footer';
 export default function Page() {
+  const [show, setShow] = React.useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [productList, setProduct] = useState<any>([]);
   useEffect(() => {
 
@@ -23,17 +28,29 @@ export default function Page() {
 
       <div className='flex '>
         {/* filters */}
+        <div>
+          
+       
+
+        </div>
         <Filters />
         {/* products */}
         <div className='md:basis-9/12 hover:shadow-2xl border-slate-100 border-2'>
 
 
+          {/* { */}
+          {/* // productList?.map((item: any) => ( */}
+          {/* // <div key={item.$id} > */}
+          {/* <Item item={item} /> */}
+
           <Item />
           <Item />
           <Item />
-          <Item />
-          <Item />
-          <Item />
+          {/* // </div> */}
+          {/* // )) */}
+          {/* // } */}
+
+
 
         </div>
       </div>
@@ -90,6 +107,7 @@ export default function Page() {
         </nav>
 
       </div>
+
       <Footer />
 
     </div>
