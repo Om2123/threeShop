@@ -28,7 +28,7 @@ export default function page() {
                     <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
                         {/* <img className="mr-3" src="https://img.icons8.com/officel/30/000000/worldwide-location.png" /> */}
                         Location:
-                        <a href="https://what3words.com/after.takes.shorts" target="_blank"> ///after.takes.shorts
+                        <a href="https://what3words.com/after.takes.shorts" target="_blank">
                         </a></p>
                     <p className="pt-8 text-sm">Inspire and Develop the Builders of Tomorrow</p>
 
