@@ -4,17 +4,17 @@ import { useContext } from "react";
 const client = new Client();
 
 client
-  .setEndpoint("https://cloud.appwrite.io/v1")
-  .setProject("6507bc8e56f5b030553e");
+  .setEndpoint(String(process.env.END_POINT))
+  .setProject(String(process.env.PROJECT_ID));
 
 const account = new Account(client);
 
 // Cre
 const createDocument = async ({ productName, price, rating, anime }: any) => {
-  
+
   database.createDocument(
-    "650816cd8feee59dcadf",
-    "6508174fd50e00f14748",
+    String(process.env.DATABASE_ID),
+    String(process.env.COLLECTION_ID),
     ID.unique(),
     {
       productName: productName,
@@ -28,9 +28,48 @@ const createDocument = async ({ productName, price, rating, anime }: any) => {
   }, (err) => { alert(err.message) }
   )
 }
+
+    const orderNowDataBase = ({
+      email,
+      productid,
+      name,
+      addres,
+      city,
+      state,
+      phone,
+      quantity,
+      today_date,
+
+      }:any) => {
+        database.createDocument(
+          String(process.env.DATABASE_ID_ORDERS),
+          String(process.env.COLLECTION_ID_ORDERS),
+          ID.unique(),
+          {
+            email: email,
+            no_of_orders: quantity,
+            product_id: productid,
+            nameOf: name,
+            data_of_order: today_date,
+            address: addres,
+            city: city,
+            state: state,
+            phone: phone,
+          },
+        ).then((res) => {
+          alert("order added successfully");
+        }).catch(er => {
+          console.log(er.message);
+
+        })
+      }
+
+
 const loadProduct = () => {
 
-  database.listDocuments("650816cd8feee59dcadf", "6508174fd50e00f14748").then((res) => {
+  database.listDocuments( 
+    String(process.env.DATABASE_ID),
+   String(process.env.COLLECTION_ID)).then((res) => {
     return res;
 
   }).catch((er) => console.log(er.message)
@@ -55,21 +94,8 @@ const logOut = async () => {
 
   }
 }
-const getUser = async () => {
-  const a = await account.get();
 
-  return a
-}
-const isLoggedfunc = async () => {
-  try {
-    const a = account.get()
-    return (await a).$id !== undefined;
 
-  } catch (error) {
-  }
 
-}
-const isLogged = isLoggedfunc();
-
-export {  logIn, isLogged, getUser, logOut, loadProduct, createDocument, account };
+export { logIn,  logOut, orderNowDataBase,loadProduct, createDocument, account };
 export const database = new Databases(client);

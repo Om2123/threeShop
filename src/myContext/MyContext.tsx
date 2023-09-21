@@ -5,21 +5,21 @@ import { Dispatch, SetStateAction, createContext, useContext, useState } from 'r
 // Define the type for your data
 
 interface MyContextState {
-  islogged: boolean ;
-  setIslogged:Dispatch<SetStateAction<boolean>>,
+  islogged: string ;
+  setIslogged:Dispatch<SetStateAction<string>>,
 }
 
 // Create the context
 const MyContext = createContext<MyContextState>(
   {
-    islogged: false,
-    setIslogged: () => false,
+    islogged: '',
+    setIslogged: () => "",
   }
 );
 
 // Create a custom provider component
 export function MyProvider({children}:{children:React.ReactNode}) {
-  const [islogged, setIslogged] = useState(false);
+  const [islogged, setIslogged] = useState("");
    
   
 
