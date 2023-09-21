@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { database, orderNowDataBase } from '@/appwrite/appwrite'
 
-export default function page() {
+export default function Page() {
 
   const [order, setOrder] = useState<{
     email: string;
@@ -41,7 +41,7 @@ export default function page() {
     }).catch(er => console.log(er.message)
     )
 
-  }, []);
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen(!isModalOpen)

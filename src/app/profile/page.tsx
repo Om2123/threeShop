@@ -3,7 +3,7 @@ import { account, database, logOut } from '@/appwrite/appwrite'
 import { Query } from 'appwrite';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
-export default function page() {
+export default function Page() {
     const [noUser, setNoUser] = React.useState<boolean>();
     const [order, setOrder] = React.useState<Array<{ [key: string]: any }>>();
     const router = useRouter();
