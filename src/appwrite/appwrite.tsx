@@ -1,5 +1,5 @@
 import MyContext from "@/myContext/MyContext";
-import { Account, Client, Databases, ID } from "appwrite";
+import { Account, Client, Databases, ID, Query } from "appwrite";
 import { useContext } from "react";
 const client = new Client();
 
@@ -64,6 +64,7 @@ const createDocument = async ({ productName, price, rating, anime }: any) => {
         })
       }
 
+  
 
 const loadProduct = () => {
 

@@ -34,6 +34,7 @@ export default function page() {
   } | null>(null);
 
   const { product_id } = useParams();
+  
   useEffect(() => {
     database.getDocument("650816cd8feee59dcadf", "6508174fd50e00f14748", product_id.toString()).then((res: any) => {
       setDoc(res);
@@ -41,6 +42,10 @@ export default function page() {
     )
 
   }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen)
+
 
   const orderNow = () => {
     const date = new Date();
@@ -182,11 +187,33 @@ export default function page() {
           <div className='flex gap-x-2 mt-4 '>
             <button className="relative w-2/4 inline-flex items-center justify-center px-10 py-4 overflow-hidden 
             font-mono font-medium tracking-tighter text-white w=full transition bg-gray-800 rounded-lg group"
-              onClick={orderNow}>
+              onClick={toggleModal}>
               <span className="absolute w-0 h-0 transition-all duration-200 ease-out bg-gray-100 rounded-full group-hover:w-64 group-hover:h-64"></span>
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
               <span className="relative group-hover:text-black">Order Now </span>
             </button>
+
+
+            {/* confirm whether order or now  */}
+            <div className={`fixed z-10 overflow-y-auto top-0 w-full left-0 ${isModalOpen ? '' : 'hidden'}`} id="modal">
+              <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div className="fixed inset-0 transition-opacity">
+                  <div className="absolute inset-0 bg-gray-900 opacity-75" />
+                </div>
+                <span className="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+                <div className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    Are You Sure You Want To Order This Product ?
+                  </div>
+                  <div className="bg-gray-200 px-4 py-3 text-right">
+                    <button type="button" className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" onClick={toggleModal}><i className="fas fa-times"></i> Cancel</button>
+                    <button type="button" className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2" onClick={()=>{orderNow();toggleModal()}}><i className="fas fa-plus"></i> Yes , Order Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* confirm whether order or now ends */}
+
 
             <button className="relative w-2/4 px-5 py-3 overflow-hidden font-medium text-gray-600 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group">
               <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>

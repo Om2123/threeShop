@@ -1,7 +1,5 @@
 "use client";
 
-import { getUser } from '@/appwrite/appwrite';
-import MyContext from '@/myContext/MyContext';
 import React, { useContext, useEffect, useState } from 'react'
 
 export default function Page() {
@@ -23,15 +21,13 @@ export default function Page() {
 
   // })
 
-
-  const [visible, setVisible] = useState(false)
-
-
+  
   return (
     <div className='pt-72 '>
-
-
+       
     </div>
+
+
   )
 }
 
