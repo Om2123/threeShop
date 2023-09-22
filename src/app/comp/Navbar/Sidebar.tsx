@@ -1,15 +1,13 @@
 "use client";
 import { logOut } from "@/appwrite/appwrite";
-import MyContext from "@/myContext/MyContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { AiFillAppstore, AiFillCloseCircle, AiFillProject } from "react-icons/ai";
 import { FaHeart, FaShoppingBag, FaSignOutAlt, FaUserAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  // const {islogged,setIslogged}= useContext(MyContext);
   const rounter = useRouter();
   const toggleSidebar = () => {
     setIsOpen(!isOpen);

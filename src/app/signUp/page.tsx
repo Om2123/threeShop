@@ -3,10 +3,8 @@ import s3alt from "@/../public/3shop-2.jpeg";
 import Image from 'next/image';
 import Link from 'next/link';
 import { account,  logIn } from "@/appwrite/appwrite"
-import { useRouter } from "next/navigation";
-import React, { useContext, useState } from 'react'
+import React, {  useState } from 'react'
 import { AiFillCloseCircle,  AiOutlineGoogle, AiOutlineTwitter } from 'react-icons/ai';
-import MyContext from "@/myContext/MyContext";
 import { ID } from "appwrite";
 
 export default function Page() {
@@ -17,8 +15,6 @@ export default function Page() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
-  // const {setIslogged}= useContext(MyContext);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (document.getElementById("password")?.innerText != document.getElementById("password2")?.innerText) {
@@ -30,9 +26,7 @@ export default function Page() {
         await account.create(ID.unique(), email, password, name).then((res: any) => {
           logIn({email,password});
           alert("user created successfully")
-          setTimeout(() => {
-            router.push("/")
-          }, 5000);
+          
           
         }).catch(err => {
           setIsError({

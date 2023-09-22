@@ -2,8 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./comp/Navbar/Navbar";
-import Head from "next/head";
-import { MyProvider } from "@/myContext/MyContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,10 +40,8 @@ anime cosplay store,
   description: "Have a look at awesome Pop! Vinyls, Anime collectibles, Poster and heaps more! Awesome stuff from Japan.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
+export default function RootLayout(props:{
+  children:React.ReactNode,
 }) {
   return (
     <html lang="en">
@@ -53,7 +49,7 @@ export default function RootLayout({
 
       <body className={inter.className}>
         <Navbar />
-        {children}
+        {props.children}
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-import MyContext from "@/myContext/MyContext";
 import { Account, Client, Databases, ID, Query } from "appwrite";
 import { useContext } from "react";
 const client = new Client();
@@ -88,7 +87,11 @@ const logIn = async ({ email, password }: any) => {
 };
 const logOut = async () => {
   try {
-    await account.deleteSession("current").then((res) => { alert("logged out") }).catch(er => console.log(er)
+    await account.deleteSession("current").then((res) => {
+      const cookieName = "token";
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+
+      alert("logged out") }).catch(er => console.log(er)
     )
   } catch (error: any) {
     console.log(error.message);

@@ -1,8 +1,8 @@
+"use client";
 import React from 'react'
-
-export default function Filters() {
+export default function page() {
   return (
-    <div className='basis-3/12 max-sm:hidden hover:shadow-2xl border-2 border-slate-100'>
+    <div className='  max-sm:hidden hover:shadow-2xl border-2 border-slate-100'>
     <div className="border-2  border-slate-100  flex pl-4 pr-32 py-4">
         <div className="flex flex-col pb-3">
           <div>
@@ -72,7 +72,7 @@ export default function Filters() {
           </div>
         </div>
       </div>
-      <div className="border-2 border-slate-100">
+      <div className="border-2 border-slate-100 text-center">
         <h3 className="uppercase font-semibold text-sm p-3 ">brand</h3>
         <div className=" pl-4  pb-3">
           <div className="flex ">
@@ -126,7 +126,7 @@ export default function Filters() {
         </div>
       </div>
       <div className="border-2 border-slate-100">
-        <h3 className="uppercase font-semibold p-3">price</h3>
+        <h3 className="uppercase font-semibold text-centet p-3">price</h3>
         <div className=" pl-4  pb-3">
           <div className="flex ">
             <input className="" type="checkbox" name="" id="" />

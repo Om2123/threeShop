@@ -2,26 +2,32 @@
 import Image from "next/image";
 import s3_log from "@/../public/login-alt-2.jpeg";
 import Link from "next/link";
+import { account } from "@/appwrite/appwrite";
+import React, {  useState } from "react";
+import { AiFillCloseCircle, AiOutlineGoogle, AiOutlineTwitter } from "react-icons/ai";
+import { BiRightArrowAlt } from "react-icons/bi";
+import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
-import { account, logIn } from "@/appwrite/appwrite";
-import React, { useContext, useState } from "react";
-import { AiFillCloseCircle,  AiOutlineGoogle, AiOutlineTwitter } from "react-icons/ai";
-import MyContext from "@/myContext/MyContext";
-import {  BiRightArrowAlt } from "react-icons/bi";
 
 export default function Page() {
   const [isErrros, setIsError] = useState({
     isError: false,
     message: ""
   })
+
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const router = useRouter();
-  // const {setIslogged} = useContext(MyContext);
+  const [password, setPassword] = useState("");
+
   const handleLogin = async () => {
     try {
 
-      await account.createEmailSession(email, password);
+      await account.createEmailSession(email, password).then((res) => {
+        setCookie('token', res.$id);
+        alert("logged in")
+        router.push("/profile")
+      }
+      );
     } catch (error: any) {
       setIsError({
         isError: true,
@@ -61,13 +67,13 @@ export default function Page() {
                 <div
                   className="mb-3 inline-flex w-full text-base items-center rounded-lg bg-red-200 px-6 py-5  text-red-700"
                   role="alert">
-                  <span className="mr-2 text-2xl" onClick={()=>{setIsError({isError: false, message: ""})}}>
-                    <AiFillCloseCircle/>
+                  <span className="mr-2 text-2xl" onClick={() => { setIsError({ isError: false, message: "" }) }}>
+                    <AiFillCloseCircle />
 
                   </span>
                   {isErrros.message}
                 </div>
-                : 
+                :
                 <>
                 </>
 
@@ -183,7 +189,7 @@ export default function Page() {
                  overflow-hidden font-medium bg-teal-500 transition duration-300 ease-out border-2 border-teal-500 rounded-2xl shadow-md group">
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 
                 -translate-x-full bg-teal-500 group-hover:translate-x-0 ease text-2xl">
-                  <BiRightArrowAlt/>
+                    <BiRightArrowAlt />
                   </span>
                   <span className="absolute flex items-center justify-center w-full h-full text-white transition-all 
                 duration-300 transform group-hover:translate-x-full ease">Sign up</span>

@@ -21,7 +21,7 @@ export default function Item(prop: any) {
 
     <div className='flex hover:shadow-2xl w-item-height shadow-lg mb-10'>
 
-      <Link href={`/shopping/${prop.item.$id}`} >
+      <Link href={`/all_products/animesite/${prop.item.$id}`} >
         <div className=" md:basis-1/3  bg-stone-300 rounded-md m-1">
           {/* product image */}
           <Image
@@ -35,14 +35,14 @@ export default function Item(prop: any) {
         </div>
       </Link>
       <div className='w-full m-1 ml-6'>
-        <Link href={`/shopping/${prop.item.$id}`} className='text-2xl p-2'>
-          {prop.item.productName}
+        <Link href={`/all_products/animesite/${prop.item.$id}`} className='text-2xl p-2'>
+          {prop? prop.item.productName : "no name "}
         </Link>
         <br />
-        <Link href={`/shopping/${prop.item.$id}`} className="text-xl p-2">
+        <Link href={`/all_products/animesite/${prop.item.$id}`} className="text-xl p-2">
           Rs.{prop.item.price}
         </Link>
-        <Link href={`/shopping/${prop.item.$id}`} className='text-sm p-2'>
+        <Link href={`/all_products/animesite/${prop.item.$id}`} className='text-sm p-2'>
           {/* {prop.item.rating} */}
           {ratingStars(prop.item.rating)}
         </Link>
@@ -67,7 +67,7 @@ export default function Item(prop: any) {
             Add to Cart
           </button>
 
-          <Link href={`/shopping/${prop.item.$id}`} className='text-sm p-2'>
+          <Link href={`all_products/animesite/${prop.item.$id}`} className='text-sm p-2'>
             <button
               type="button"
               className="inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal
