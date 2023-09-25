@@ -1,5 +1,4 @@
-import { Account, Client, Databases, ID, Query } from "appwrite";
-import { useContext } from "react";
+import { Account, Client, Databases, ID } from "appwrite";
 const client = new Client();
 
 client
@@ -9,7 +8,7 @@ client
 const account = new Account(client);
 
 // Cre
-const createDocument = async ({ productName, price, rating, anime }: any) => {
+const createDocument = async ({ productName, price, rating, anime ,imageUrl}: any) => {
 
   database.createDocument(
     String(process.env.DATABASE_ID),
@@ -20,7 +19,7 @@ const createDocument = async ({ productName, price, rating, anime }: any) => {
       price: price,
       rating: rating,
       animeName: anime,
-      imageUrl: " being"
+      imageUrl: imageUrl
     }
   ).then((res) => {
     alert("Product added successfully");
@@ -74,7 +73,8 @@ const loadProduct = () => {
 
   }).catch((er) => console.log(er.message)
   )
-
+  console.log("hey server logs");
+  
 }
 
 const logIn = async ({ email, password }: any) => {
@@ -91,10 +91,10 @@ const logOut = async () => {
       const cookieName = "token";
       document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 
-      alert("logged out") }).catch(er => console.log(er)
+      alert("Logging out") }).catch(er => alert("User is not logged !!")
     )
   } catch (error: any) {
-    console.log(error.message);
+    alert(error.message);
 
   }
 }

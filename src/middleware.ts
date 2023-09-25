@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { account } from './appwrite/appwrite'
  
 // This function can be marked `async` if using `await` inside
 export  function middleware(request: NextRequest) {
@@ -14,7 +13,8 @@ export  function middleware(request: NextRequest) {
     //  then he will be redirected to /
     return NextResponse.redirect(new URL('/', request.nextUrl));
   }
-  if('/shopping/data/createproduct' === path && !token)
+  const adminLinks = '/all_products/animesite/data/manageProduct';
+  if(adminLinks === path && !token)
   {
       return NextResponse.redirect(new URL('/login', request.nextUrl));
   }
@@ -24,5 +24,5 @@ export  function middleware(request: NextRequest) {
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/login','/signUp','/shopping/data/createproduct'],
+  matcher: ['/login','/signUp','/all_products/animesite/data/manageProduct'],
 }

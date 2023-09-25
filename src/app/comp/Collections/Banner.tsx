@@ -1,8 +1,12 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
+import {useRouter} from "next/navigation"
 
 export default function Banner() {
+  const [searchText, setSearchText] = useState("");
+  const router = useRouter();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {if (e.key === "Enter") {router.push(`/all_products/searchedProducts/${searchText}` )}};
 
   return (
     <div
@@ -20,7 +24,9 @@ export default function Banner() {
              px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear
               focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none
                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            placeholder="Type query"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <label
             htmlFor="exampleSearch2"

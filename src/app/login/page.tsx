@@ -2,7 +2,7 @@
 import Image from "next/image";
 import s3_log from "@/../public/login-alt-2.jpeg";
 import Link from "next/link";
-import { account } from "@/appwrite/appwrite";
+import { account } from "@/appwrite/route";
 import React, {  useState } from "react";
 import { AiFillCloseCircle, AiOutlineGoogle, AiOutlineTwitter } from "react-icons/ai";
 import { BiRightArrowAlt } from "react-icons/bi";
@@ -78,15 +78,14 @@ export default function Page() {
                 </>
 
             }
-            <form>
+            <div>
               {/* <!-- Email input --> */}
               <div className="relative mb-6" data-te-input-wrapper-init>
-                <label
-                  htmlFor="website-admin"
+                <h1
                   className="block mb-2 max-sm:ml-4 text-sm font-medium text-gray-900 "
                 >
                   Username
-                </label>
+                </h1>
                 <div className="flex">
                   <span className="inline-flex items-center max-sm:px-4 max-sm:ml-2 px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                     <svg
@@ -227,7 +226,7 @@ export default function Page() {
                   Sign in with Google
                 </button>
               </div>
-            </form>
+            </div>
           </div>
 
           {/* free space for mobile */}

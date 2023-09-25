@@ -2,85 +2,76 @@
 import s3alt from "@/../public/3shop-2.jpeg";
 import Image from 'next/image';
 import Link from 'next/link';
-import { account,  logIn } from "@/appwrite/appwrite"
-import React, {  useState } from 'react'
-import { AiFillCloseCircle,  AiOutlineGoogle, AiOutlineTwitter } from 'react-icons/ai';
+import { account, logIn } from "@/appwrite/route"
+import React, { useState } from 'react'
+import { AiFillCloseCircle, AiOutlineGoogle, AiOutlineTwitter } from 'react-icons/ai';
 import { ID } from "appwrite";
 
 export default function Page() {
-  const [isErrros, setIsError] = useState({
-    isError: false,
-    message: ""
-  })
+  const [isErrros, setIsError] = useState({ isError: false, message: "" })
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (document.getElementById("password")?.innerText != document.getElementById("password2")?.innerText) {
+
+    if (document.getElementById("password")?.innerText != document.getElementById("password2")?.innerText) 
+    {
       alert("password not match !!")
       return;
     }
 
-      try {
-        await account.create(ID.unique(), email, password, name).then((res: any) => {
-          logIn({email,password});
-          alert("user created successfully")
-          
-          
-        }).catch(err => {
-          setIsError({
-            isError: true,
-            message: err.message
-          })
-          console.log(err.message);
-          return
-        });
-
-      } catch (error: any) {
-        
-        
-      }
+    try {
+      await account.create(ID.unique(), email, password, name).then((res: any) => {
+        logIn({ email, password });
+        alert("user created successfully")
+      }).catch(err => {
+        setIsError({
+          isError: true,
+          message: err.message
+        })
+        console.log(err.message);
+      });
+    } catch (error: any) {
+      console.log(error.message);
+    }
 
   };
+
   return (
     <section className="h-screen  ">
       <div className="container h-full py-24">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between ">
           {/* <!-- Left column container with background--> */}
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12   ">
-
             <Image
               priority
               src={s3alt}
               className="w-full md:h-[500px] md:ml-10  rounded-xl"
-
               alt="log in image"
-            ></Image>
-
-
+            />
           </div>
 
           {/* <!-- Right column container with form --> */}
           <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
-             {/* error message to user */}
-             {
+            {/* error message to user */}
+            {
               isErrros.isError ?
                 <div
                   className="mb-3 inline-flex w-full items-center rounded-lg bg-red-200 px-6 py-5 text-base text-red-700"
                   role="alert">
-                  <span className="mr-2 text-2xl" onClick={()=> {setIsError({isError: false, message: ""})}}>
-                    <AiFillCloseCircle/>
+                  <span className="mr-2 text-2xl" onClick={() => { setIsError({ isError: false, message: "" }) }}>
+                    <AiFillCloseCircle />
                   </span>
                   {isErrros.message}
                 </div>
-                : 
-                <>
-                
-                </>
-
+                :
+                <></>
             }
-            <form>
+            {/* inputs stars*/}
+
+            <div>
               {/* <!-- Email input --> */}
               <div className="relative mb-6" data-te-input-wrapper-init>
                 <div className="max-sm:mx-2.5">
@@ -232,13 +223,14 @@ export default function Page() {
                   Sign up with Google
                 </button>
               </div>
-            </form>
+            </div>
+            {/* input ends */}
           </div>
 
           {/* free space for mobile */}
-          <div className="max-sm:p-40">
+          <div className="max-sm:p-40"></div>
+          {/* ends free space for mobile */}
 
-          </div>
         </div>
       </div>
     </section>

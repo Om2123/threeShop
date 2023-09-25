@@ -1,3 +1,4 @@
+import { database } from '@/appwrite/route';
 import { setCookie } from 'cookies-next';
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,11 +10,27 @@ export default function Item(prop: any) {
     document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
   }
 
-  const setProductDetailCookie = (productDetails: string, name: string) => {
-    const cookieValue = JSON.stringify(productDetails);
-    if (cookieValue) {
-      setCookie(name, cookieValue);
-    }
+  const setProductDetailCookie = (id: string, name: string) => {
+    const update = database.updateDocument(
+      String(process.env.DATABASE_ID),
+      String(process.env.COLLECTION_ID),
+      id,
+      {
+        inCart: true,
+      }
+    );
+
+    update.then(function (response: any) {
+      console.log(response); // Success
+    }, function (error: any) {
+      alert(error); // Failure
+    });
+
+    //  for future use to make more efficient
+    // const cookieValue = JSON.stringify(id);
+    // if (cookieValue) {
+    // setCookie(name, cookieValue);
+    // }
 
   };
   return (
@@ -36,7 +53,7 @@ export default function Item(prop: any) {
       </Link>
       <div className='w-full m-1 ml-6'>
         <Link href={`/all_products/animesite/${prop.item.$id}`} className='text-2xl p-2'>
-          {prop? prop.item.productName : "no name "}
+          {prop ? prop.item.productName : "no name "}
         </Link>
         <br />
         <Link href={`/all_products/animesite/${prop.item.$id}`} className="text-xl p-2">

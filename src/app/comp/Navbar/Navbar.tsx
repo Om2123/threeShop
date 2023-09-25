@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/../public/logo.jpg";
 import { AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
 import { BsBag } from "react-icons/bs";
@@ -8,7 +8,15 @@ import Image from "next/image";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
 import { BiSolidShoppingBagAlt } from "react-icons/bi";
+import { useRouter } from "next/navigation";
 export default function Navbar() {
+
+  const [searchText, setSearchText] = useState("");
+  const router = useRouter();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {if (e.key === "Enter")
+   {router.push(`/all_products/searchedProducts/${searchText}` )}};
+
   return (
     <div
       className="bg-white 
@@ -36,6 +44,9 @@ export default function Navbar() {
             className="px-4 py-2 bg-slate-100  focus:outline-none w-80 text-sm focus:border-gray-400"
             type="text"
             placeholder="Search for products,brands and more"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           {/* product from seach parameter */}
         </div>

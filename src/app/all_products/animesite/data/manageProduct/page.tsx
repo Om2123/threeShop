@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { createDocument, database } from "@/appwrite/appwrite";
+import { createDocument, database } from "@/appwrite/route";
 import dynamic from "next/dynamic";
 
 function Page() {
@@ -17,12 +17,13 @@ function Page() {
     price: "",
     anime: "",
     rating: "",
+    imageUrl: "",
   });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    createDocument({ productName: product.name, price: product.price, rating: product.rating, anime: product.anime });
+    createDocument({ productName: product.name, price: product.price, rating: product.rating, anime: product.anime ,imageUrl:product.imageUrl});
   };
   useEffect(() => {
 
@@ -56,16 +57,17 @@ function Page() {
 
   return (
     <div className="max-w-7xl mx-auto mt-36" >
+      <h1 className="text-4xl font-bold text-center">Add New Products</h1>
       <form
         name="addItem"
         onSubmit={handleSubmit}
-        className="flex justify-center mb-10"
+        className="flex max-sm:flex-col justify-center mb-10"
       >
         <input
           type="text"
           name=""
           placeholder="Enter product name"
-          className="border p-2 w-2/3 rounded-md"
+          className="border max-sm:p-2 p-1 max-sm:m-2 max-sm:text-2xl w-2/3 rounded-md"
           value={product.name}
           onChange={(e) => { setProduct({ ...product, name: e.target.value }) }}
         />
@@ -74,15 +76,23 @@ function Page() {
           type="number"
           name=""
           placeholder="Enter price"
-          className="border p-2 w-2/3 rounded-md"
+          className="border max-sm:p-2 p-1 max-sm:m-2 max-sm:text-2xl w-2/3 rounded-md"
           value={product.price}
           onChange={(e) => { setProduct({ ...product, price: e.target.value }) }}
         />
         <input
           type="text"
           name=""
+          placeholder="Enter image Url"
+          className="border max-sm:p-2 p-1 max-sm:m-2 max-sm:text-2xl w-2/3 rounded-md"
+          value={product.imageUrl}
+          onChange={(e) => { setProduct({ ...product, imageUrl: e.target.value }) }}
+        />
+        <input
+          type="text"
+          name=""
           placeholder="Enter anime name"
-          className="border p-2 w-2/3 rounded-md"
+          className="border max-sm:p-2 p-1 max-sm:m-2 max-sm:text-2xl w-2/3 rounded-md"
           value={product.anime}
           onChange={(e) => { setProduct({ ...product, anime: e.target.value }) }}
         />
@@ -90,19 +100,20 @@ function Page() {
           type="text"
           name=""
           placeholder="Enter rating"
-          className="border p-2 w-2/3 rounded-md"
+          className="border max-sm:p-2 p-1 max-sm:m-2 max-sm:text-2xl w-2/3 rounded-md"
           value={product.rating}
           onChange={(e) => { setProduct({ ...product, rating: e.target.value }) }}
         />
         <button
-          className="bg-purple-500 p-2 text-white ml-2 rounded-md"
+          className="bg-purple-500 text-3xl max-sm:w-28 m-4 p-2 text-white ml-2 rounded-md"
           type="submit"
         >
           Add Product
         </button>
       </form>
-      <h1 className="text-2xl font-bold">Listed Products</h1>
-      <div className="flex shrink border-2 border-red-600 overflow-scroll h-72">
+
+      <h1 className="text-4xl caret-neutral-800 font-bold">Listed Products</h1>
+      <div className="flex max-sm:h-96 shrink border-2 border-red-600 overflow-x-scroll max-sm:flex-col h-72">
         {
           items?.map((item: any) => (
             <div key={item.$id}

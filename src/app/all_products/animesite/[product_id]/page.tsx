@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
-import { database, orderNowDataBase } from '@/appwrite/appwrite'
+import { database, orderNowDataBase } from '@/appwrite/route'
 export default function Page() {
   const [order, setOrder] = useState<{
     email: string;
@@ -125,8 +125,7 @@ export default function Page() {
               </div>
 
               {/* information input */}
-              <form className='flex flex-col gap-y-4'
-              // onSubmit={(e) => e.preventDefault()}
+              <div className='flex flex-col gap-y-4'
               >
                 <input
                   className='border border-gray-300  focus:border-black rounded w-full px-4 h-14 text-sm outline-none'
@@ -177,7 +176,7 @@ export default function Page() {
                   onChange={(e) => setOrder({ ...order, address: e.target.value })}
                   required
                 />
-              </form>
+              </div>
 
               {/* buttons */}
               <div className='flex gap-x-2 mt-4 '>
@@ -294,7 +293,7 @@ export default function Page() {
                 </div>
 
                 {/* information input */}
-                <form className='flex flex-col gap-y-4'
+                <div className='flex flex-col gap-y-4'
                 // onSubmit={(e) => e.preventDefault()}
                 >
 
@@ -306,7 +305,7 @@ export default function Page() {
                   <div className="h-2.5 bg-gray-700 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
                   <div className="h-2.5 bg-gray-700 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
 
-                </form>
+                </div>
 
                 {/* buttons */}
                 <div className='flex gap-x-2 mt-4 '>

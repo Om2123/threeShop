@@ -17,3 +17,18 @@ input[name='panel']:checked ~ .accordion__content {
   /* Get this as close to what height you expect */
   max-height: 10em;
 }
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-explosion {
+  animation: explode 1s ease-out;
+  transform-origin: center center;
+}
