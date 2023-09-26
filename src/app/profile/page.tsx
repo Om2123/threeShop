@@ -82,37 +82,32 @@ export default function Page() {
                             </p>
 
                             {/*  */}
-                            <div className="accordion flex flex-col items-center justify-center ">
-                                {/* <!--  Panel 1  --> */}
 
+                            <div className="accordion  mt-4 text-center">
                                 <div className="w-1/2" onClick={getOrder}>
-                                    <input type="checkbox" name="panel" id="panel-3" className="hidden " />
-                                    <label htmlFor="panel-3"
-                                        id='panel-3-label'
-                                        className="relative block bg-black text-white
-                                after:absolute after:right-4 after:text-white p-4 shadow border-b border-grey">My Orders</label>
-                                    <div className="accordion__content overflow-scroll px-40">
-
-                                        {
-                                            order ? order.map((item: any) => {
-                                                return (
-                                                    <div className="flex flex-col items-center justify-center " key={item.$id}>
-                                                        <p className="text-sm">Order ID: {item.product_id}</p>
-                                                        <p className="text-sm">Ordered by this email: {item.email}</p>
-                                                        <p className="text-sm">Order Status: {item.order_status}</p>
-                                                        <p className="text-sm">Order Date: {item.data_of_order}</p>
-                                                        <p className="text-sm">Order Items: {item.no_of_orders}</p>
-                                                        <p className="text-sm">Order Address: {item.address}</p>
-                                                        <p className="text-sm">Order City: {item.city}</p>
-                                                        <p className="text-sm">Order State: {item.state}</p>
-
-                                                    </div>
-                                                )
-                                            }) : <>
-                                                <p className='text-xl '> Either you have not ordered anything or data is loading ...</p>
-                                            </>
-                                        }
-
+                                    <input type="checkbox" name="panel" id="panel-3" className="hidden" />
+                                    <label htmlFor="panel-3" id='panel-3-label' className="relative block bg-black text-white
+                after:absolute after:right-4 after:text-white p-4 shadow border-b border-grey hover:bg-gray-700 cursor-pointer">
+                                        My Orders
+                                    </label>
+                                    <div className="accordion__content overflow-scroll px-4">
+                                        {order ? (
+                                            order.map((item: any) => (
+                                                <div className="border border-gray-300 rounded p-2 my-2" key={item.$id}>
+                                                <p className="text-sm text-blue-500">Order ID: {item.product_id}</p>
+                                                <p className="text-sm text-green-500">Ordered by this email: {item.email}</p>
+                                                <p className="text-sm text-purple-500">Order Status: {item.order_status}</p>
+                                                <p className="text-sm text-red-500">Order Date: {item.data_of_order}</p>
+                                                <p className="text-sm text-yellow-500">Order Items: {item.no_of_orders}</p>
+                                                <p className="text-sm text-indigo-500">Order Address: {item.address}</p>
+                                                <p className="text-sm text-orange-500">Order City: {item.city}</p>
+                                                <p className="text-sm text-pink-500">Order State: {item.state}</p>
+                                            </div>
+                                            
+                                            ))
+                                        ) : (
+                                            <p className='text-xl'>Either you have not ordered anything or data is loading ...</p>
+                                        )}
                                     </div>
                                 </div>
                             </div>

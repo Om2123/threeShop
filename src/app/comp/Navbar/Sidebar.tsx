@@ -8,7 +8,6 @@ import { FaHeart, FaShoppingBag, FaSignOutAlt, FaUserAlt } from "react-icons/fa"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const rounter = useRouter();
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -30,15 +29,15 @@ const Sidebar = () => {
         id="sidenav-7"
         className={`fixed right-0 top-0  h-screen w-60 ${isOpen ? " hidden " : " "
           }
-        overflow-hidden  bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] 
-          data-[te-sidenav-hidden='false']:-translate-x-0 dark:bg-zinc-800`}
+        overflow-hidden bg-black  shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] 
+          data-[te-sidenav-hidden='false']:-translate-x-0 dark:bg-slate-700		`}
         data-te-sidenav-init
         data-te-sidenav-hidden="false"
         data-te-sidenav-right="true"
       >
         <button
           onClick={toggleSidebar}
-          className="flex relative left-44 items-center justify-center p-2 text-3xl bg-red-500 hover:bg-red-600 text-white rounded-full"
+          className="flex relative left-40 top-2 items-center justify-center p-2 text-3xl bg-red-500 hover:bg-red-600 text-white rounded-full"
         >
           {/* X */}
           <AiFillCloseCircle />
